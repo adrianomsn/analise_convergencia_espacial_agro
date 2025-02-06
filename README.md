@@ -1,12 +1,15 @@
-# Análise da Convergência Espacial no Setor Agropecuário do Estado do Ceará
+# Análise de disparidades regionais do setor agrpecuário no Ceará: O processo de Convergência Espacial
 
 ## Objetivo Geral
-- Verificar o indicativo da presença da convergência do valor adicionado bruto per capita do setor agropecuário nos municípios do estado do Ceará. 
+- Investigar se ao longo do período de 2002 a 2020 houve redução das disparidades regionais do PIB no setor agropecuário;
 
 ## Objetivos específicos
-- Analisar a forma como o VAB per capita do setor agropecuário está distribuído espacialmente nos municípios do estado do Ceará no período de análise;
-- Checar a existência de autocorrelação espacial local e global por intermédio de uma Análise Exploratória de Dados Espaciais;
-- Verificar através da estimação de convergência-β absoluta se há redução das disparidades regionais tendo em vista o longo termo do período analisado.
+- Conduzir uma análise exploratória dos dados do setor:
+    - Analisar e entender tendências ao longo do tempo do PIB per capita do setor agropecuário;
+    - Entender como o PIB per capita do setor varia de acordo com a região;
+- Investigar a hipótese de autocorrelação espacial local ou/e global;
+- Estimar modelos econométricos espaciais afim verificar se houve um processo de convergência-β absoluta 
+
 
 
 # Resultados
