@@ -8,7 +8,7 @@
     - Analisar e entender tendências ao longo do tempo do PIB per capita do setor agropecuário;
     - Entender como o PIB per capita do setor varia de acordo com a região;
 - Investigar a hipótese de autocorrelação espacial local ou/e global;
-- Estimar modelos econométricos espaciais afim verificar se houve um processo de convergência-β absoluta 
+- Estimar modelos de regressão espacial, afim verificar se houve um processo de convergência-β absoluta 
 
 
 
