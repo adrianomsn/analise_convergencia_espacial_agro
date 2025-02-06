@@ -1,16 +1,83 @@
-# Análise de disparidades regionais do setor agrpecuário no Ceará: O processo de Convergência Espacial
+# Análise de disparidades regionais do setor agrpecuário no Ceará: Um processo de Convergência Espacial
 
 ## Objetivo Geral
 - Investigar se ao longo do período de 2002 a 2020 houve redução das disparidades regionais do PIB no setor agropecuário;
 
 ## Objetivos específicos
-- Conduzir uma análise exploratória dos dados do setor:
+- Conduzir uma análise exploratória dos dados espaciais (AEDE) do setor:
     - Analisar e entender tendências ao longo do tempo do PIB per capita do setor agropecuário;
-    - Entender como o PIB per capita do setor varia de acordo com a região;
-- Investigar a hipótese de autocorrelação espacial local ou/e global;
-- Estimar modelos de regressão espacial, afim verificar se houve um processo de convergência-β absoluta 
+    - Analisar e entender como se comporta as taxas de crescimento do PIB per capita do setor agropecuário;
+    - Entender como o PIB per capita e a taxa de crescimento do PIB do setor varia de acordo com a região;
+    - Analisar e investigar tendências de produção do setor agropecuário e como eles se comportaram ao longo do tempo;
+- Investigar a hipótese de autocorrelação espacial local ou/e global utilizando I de Moran;
+- Identificar Clusters Espaciais utilizando Indicador Local de Associação Espacial (LISA);
+- Estimar modelos de regressão espacial, afim verificar se houve um processo de convergência-β absoluta, e portanto, redução das disparidades regionais.
 
 
+## Metodologia utilizada
+Inicialmente foi executada um análise exploratória a fim de investigar e entender tendências e extrair insighs sobre a variável PIB do setor agropecuário ao longo do período de 2002 a 2020. Tão como, identifica possíveis pontos de agrupamentos espaciais (clusters) e suas peculiaridades.
+Posteriormente, determina-se o tipo de matriz de peso espacial a ser utilizada, com o objetivo de verificar existe alguma influência ou impacto espacial de regiões i e suas regiões vizinhas j. Essa matriz utiliza o critério de próximidade do tipo Rainha de ordem 1 (Alusão ao tipo de movimentação da peça Rainha no Xadrez).
+
+### Representação visual da matriz Rainha de Ordem 1
+![image](https://github.com/user-attachments/assets/8f749884-86bf-4929-94bc-a43bd551f6d0)
+
+### Notação matemática da matriz Rainha de Ordem 1 (para Nerds)
+![image](https://github.com/user-attachments/assets/a0e53a37-44c7-437c-841c-debf2ab72458)
+
+Onde, temos: 1 = Vizinhos e 0 = Não vizinhos.
+
+Tendo a matriz espacial definida, podemos de fato prosseguir para a aplicação da estatistíca I de Moran. Esse teste é utilizado com objetivo de verificar a existência de um fenômeno chamado autocorrelação espacial através do grau de intensidade de associação espacial da variável em questão para aquele espaço geográfico.
+### Notação matemática do I de Moran (para Nerds)
+
+![image](https://github.com/user-attachments/assets/ae81c98e-a12d-4858-827e-e8d53cbc5599)
+
+Dessa forma, temos:
+- n é quantidade de municípios;
+- Wz é o valor determinado de regiões vizinhas;
+- z é a variável de análise, no caso o PIB per capita agropecuário;
+- S₀ é um somatório dos elementos da matriz espacial (W).
+
+A partir do teste da estatística I de Moran podemos avaliar o resultados, caso o valor observa seja superior ao valor esperado temos autocorrelação espacial positiva, do contrário autocorrelação espacial negativa.
+O que isso significa de fato? Caso haja autocorrelação espacial positiva, isso determina basicamente que, municípios que tenham PIB per capita agropecuário  elevado estarão agrupados com outros municípios de PIB elevado. No caso de autocorrelação espacial negativa, os municípios de diferentes valores de PIB estarão agrupados de forma mais heterogênea.
+
+Com a conclusão dos testes de Moran, iniciamos a ultima etapa dessa AEDE que é a aplicação dos Indicadores Locais de Associação Espacial (LISA), que nada mais é que uma forma de investigar padrões espaciais de maneira local, associações estas que não podem ser captadas por testes globais como o I de Moran. Esse agrupamentos ou padrões espaciais seguem a seguinte premissa:
+
+## Representação gráfica dos agrupamentos com base no Diagrama de dispersão espacial de Moran
+
+![image](https://github.com/user-attachments/assets/56ff1505-f5bc-4907-b8f8-642f700aa4bd)
+
+Por fim, após toda análise exploratória de estatísticas descritivas, medidas de dispersão para encontrar padrões nos dados, além dos testes de interação espacial para entender a intensidade que o território se relaciona ou influência as variáveis, podemos finalmente passar para análise final que é feita através da estimação de modelos de regressão espacial, nada mais é que algoritmos de regressão linear que incorporam o fator espacial, ou seja, conseguem verificar a presença de autocorrelação espacial das variáveis analisadas.
+
+A análise será feita através da estimação de 3 modelos de regressão, a partir disso feito um comparativo para entender o cenário e necessidades específicas a partir dos resultados e qual direcionamento será escolhido da a situação.
+
+### Representação matemática do algoritmo de Mínimos Quadrados Ordinários - MQO 
+![image](https://github.com/user-attachments/assets/52ad576e-9971-4da3-ab99-9a2a752b436a)
+
+
+### Representação matemática do algoritmo de Erro Espacial - SEM
+
+![image](https://github.com/user-attachments/assets/c29e266d-2071-4c4a-aa7f-dfd39ea50d62)
+
+### Representação matemática do algoritmo de Defasagem Espacial - SAR 
+
+![image](https://github.com/user-attachments/assets/6914183f-edb2-4814-b20d-e263b725ba65)
+
+
+# Análise Exploratória dos Dados Espaciais
+
+## Distribuição Espacial do PIB per capita agro em 2002
+![image](https://github.com/user-attachments/assets/4f459253-ca8d-4d87-92dd-8484a6e18fc9)
+
+Observando o comportamento de distribuição do VAB a nível de indivíduo no início do período (2002). Pode-se perceber uma lacuna considerável entre o menor e o maior valor de VAB per capita encontrado, confirmando um cenário de grande disparidade inter-regional inicialmente. Entre os municípios com as tonalidades mais escuras do mapa, tem-se os maiores patamares encontrados para o VAB per capita. De acordo com a separação por regiões de planejamento conforme IPECE (2015), observa-se os principais agrupamentos de altos valores nas seguintes regiões: Serra da Ibiapaba com 4 municípios (Tianguá, Ibiapina, Guaraciaba do Norte e Ubajara), Vale do Jaguaribe com 5 munícipios (Jaguaretama, Jaguaribara, Alto Santo, São João do Jaguaribe e Potiretama) e por fim Sertão de Crateús/Inhamuns com 4 municípios (Independência, Novo Oriente, Quiterianópolis e Parambu). A seguir, citando as regiões contendo os menores valores, temos diversos municípios da região da Grande Fortaleza (Fortaleza, Maracanaú, Caucaia, Itaitinga, Pacatuba), mas também na região do Sertão de Sobral (Sobral, Massapê, Irauçuba, Miraíma). Respectivamente das regiões citadas, a região metropolitana da Grande Fortaleza demonstra alto grau de urbanização, já em relação a região do Sertão de Sobral temos diversos municípios situados em áreas com processo de desertificação avançado, dessa forma espera-se uma tendência de baixos níveis de VAB per capita agropecuária como demonstrado.
+
+## Distribuição Espacial do PIB per capita agro em 2020
+![image](https://github.com/user-attachments/assets/25e262a5-b941-453b-ae36-d83f5f483991)
+
+Com base no gráfico de 2020, observa-se trechos do mapa com tonalidade mais escura representam regiões municipais contendo patamares superiores para VAB per capita agropecuário de 2020. Já regiões demonstrando tonalidade mais clara são municípios apresentando patamares menores para VAB per capita agropecuário, ou seja, regiões com valores menos representativos. Ainda, observando a Figura 3, visualizamos grandes agrupamentos espaciais de municípios contendo patamar elevado para VAB per capita do setor agropecuário, com destaque principal para duas regiões: Situada mais a Noroeste do estado, temos a Serra da Ibiapaba como uma das principais regiões observadas, contendo 5 municípios (Guaraciaba do Norte, Croatá, Ibiapina, Ubajara e Tianguá) do total de 37 dos maiores valores obtidos para VAB per capita agropecuária, com forte produção agrícola tendo destaque para plantio de acerola, flores, pitaia, tomate, maracujá e mirtilo. Já mais ao Leste do estado temos o Vale do Jaguaribe como outra região de grande relevância no setor, também com 5 do total de 37 municípios (Limoeiro do Norte, São João do Jaguaribe, Quixeré, Potiretama, Alto Santo), com cultivo destaque em mamão, banana, milho e produção de leite. Seguidos por regiões contendo menor representatividade no total de municípios com alto valor para o VAB per capita, como: Sertão de Sobral, Sertão de Crateús, Sertão Central, Região do Cariri, Maciço do Baturité e Litoral Leste.
+## Taxa de Crescimento do PIB per capita agro
+![image](https://github.com/user-attachments/assets/4f9586b0-bd92-4d38-ac24-bd437c7e333a)
+
+A taxa de crescimento do VAB per capita agropecuário entre os anos de 2002 e 2020, das regiões analisadas no gráfico acima, as que apresentaram maiores taxas no que concerne à crescimento no período analisado foram: Varjota situada no Sertão de Sobral, que apresentou grande recuperação no cultivo da mandioca e milho mesmo após longo período de seca que perdurou de 2012 a 2018 diminuindo assim drasticamente sua produção, porém o município tornou a recuperar um alto patamar de produção, e no que diz respeito ao crescimento de produção em relação ao início do período, demonstrando patamares altíssimos para o nível de produção em sementes de urucum e produção de banana. Na região do Cariri com o município de Missão Velha apresentando crescimento notável para produção de goiaba, limão e coco-da-baía, em seguida Farias Brito evidenciando um grande crescimento de sua produção em grãos de fava, tomate, goiaba e banana, seguido por Barbalha expondo também um crescimento notável na sua produção de milho e melancia. Na Serra da Ibiapaba, temos Guaraciaba do Norte e Croatá, destacando-se através de sua produção de cebola, melancia e principalmente tomate. Por fim temos Beberibe no Litoral Leste com a maior produção de Castanha de Caju do estado, além de grandes produções de limão, manga e coco-da-baía. Ou seja, pode-se concluir que esses ganhos expressivos no crescimento das produções agrícolas desses municípios foram resultantes dos altos níveis de crescimento do VAB per capita apresentados durante o período de análise.
 
 # Resultados
 
@@ -63,7 +130,7 @@ Lagrange Multiplier (SARMA)     2          32,4543        0,00000
 
  
 
-MODELO DO ERRO ESPACIAL (SEM)
+MODELO DO ERRO ESPACIAL - Spatial Error Model (SEM)
 
 ```
 SUMMARY OF OUTPUT: SPATIAL ERROR MODEL - MAXIMUM LIKELIHOOD ESTIMATION 
@@ -97,7 +164,7 @@ TEST                                     DF      VALUE        PROB
 Likelihood Ratio Test                    1        25,2074     0,00000
 ```
 
-MODELO DE DEFASAGEM ESPACIAL (SAR)
+MODELO DE DEFASAGEM ESPACIAL - Spatial Auto Regressive (SAR)
 
 ```
 SUMMARY OF OUTPUT: SPATIAL LAG MODEL - MAXIMUM LIKELIHOOD ESTIMATION
