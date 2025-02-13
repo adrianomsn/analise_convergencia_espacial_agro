@@ -81,7 +81,11 @@ A taxa de crescimento do VAB per capita agropecuário entre os anos de 2002 e 20
 
 # Resultados
 
+Buscando compreensão completa do existência ou não do fenômeno de convergência espacial para o PIB per capita agropecuário utilizou-se inferência através de modelos de regressão linear e regressão linear espacial.
+
 MODELO MÍNIMOS QUADRADOS ORDINÁRIOS
+
+Para os resultados obtidos na regressão por MQO avaliamos alguns valores afim de inferir se há necessidade de adequação do modelo ao elemento espacial, de forma que, a influência espacial seja uma importante condição para se explicar os resultados do modelo. Tendo isso em mente, avaliamos o *Multiplicador de Lagrange Defasado (𝑀𝐿𝘱)* e do * Erro Espacial (𝑀𝐿𝛌)*, com *25,05* e *29,07* respectivamente implicando necessidade de adoção de modelos que consideram a influência espacial na inferência.
 
 ```
 SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES ESTIMATION
